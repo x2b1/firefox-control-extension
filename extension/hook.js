@@ -315,10 +315,19 @@
         return result;
       }
       case 'main.fetch': {
+        /* fetch stringifies a non-string body with toString(), so an object
+         * arrives as the literal "[object Object]" and the API rejects it with
+         * a misleading "body is not valid JSON". Serialise it here instead. */
+        let body = params.body;
+        if (body != null && typeof body !== 'string' && !(body instanceof Blob) &&
+            !(body instanceof ArrayBuffer) && !(body instanceof URLSearchParams) &&
+            !(body instanceof FormData)) {
+          body = JSON.stringify(body);
+        }
         const res = await nativeFetch.call(window, params.url, {
           method: params.method || 'GET',
           headers: params.headers || undefined,
-          body: params.body,
+          body,
           credentials: params.credentials || 'include',
           mode: params.mode || undefined,
           redirect: params.redirect || 'follow',
