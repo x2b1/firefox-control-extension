@@ -92,6 +92,22 @@
           rec.type = res.type;
           rec.ms = Math.round(performance.now() - started);
           record(rec);
+          /* Read the body for the log only, then hand back an untouched clone.
+           * Without this, net.log shows status and headers but no body for
+           * fetch -- the same information XHR entries carry. The page sees an
+           * unmodified Response. */
+          if (typeof res.clone === 'function') {
+            try {
+              res.clone().text().then(
+                (text) => {
+                  if (text == null) return;
+                  rec.responseText = summarize(text);
+                  record(rec);
+                },
+                () => { /* opaque or already-locked stream; headers stand alone */ }
+              );
+            } catch { /* clone unavailable */ }
+          }
           return res;
         },
         (err) => {
