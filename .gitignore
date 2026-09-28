@@ -1,0 +1,17 @@
+# Secrets and local state
+.data/
+*.token
+
+# Build output
+out/
+*.xpi
+
+# Dependencies (there are none, but just in case)
+node_modules/
+package-lock.json
+
+# Editor / OS
+.DS_Store
+*.swp
+.idea/
+.vscode/

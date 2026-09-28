@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Pentest Bridge</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <span class="dot" id="dot"></span>
+    <strong>Pentest Bridge</strong>
+    <span class="spacer"></span>
+    <span class="mono dim" id="state">idle</span>
+  </header>
+
+  <section>
+    <label for="token">Agent token</label>
+    <div class="row">
+      <input id="token" type="password" spellcheck="false" placeholder="64-hex from server startup" />
+      <button id="toggle" title="show/hide">👁</button>
+    </div>
+    <div class="row">
+      <input id="label" placeholder="client label" spellcheck="false" />
+      <button id="connect" class="primary">Connect</button>
+    </div>
+    <div class="hint mono" id="msg"></div>
+  </section>
+
+  <section>
+    <div class="row between">
+      <label>Enabled domains</label>
+      <span class="mono dim" id="mode">—</span>
+    </div>
+    <div class="chips" id="chips"></div>
+    <div class="row">
+      <input id="domain" placeholder="example.com" spellcheck="false" />
+      <button id="allow">Allow</button>
+      <button id="lock" class="danger" title="revoke every domain">Lock all</button>
+    </div>
+    <div class="hint">
+      Locked means the bridge refuses to run on any page. Add only the hosts
+      you are authorised to test.
+    </div>
+  </section>
+
+  <section>
+    <div class="row between">
+      <label>This tab</label>
+      <span class="mono dim" id="taburl"></span>
+    </div>
+    <div class="row">
+      <button id="inpage">Run a page op in this tab</button>
+    </div>
+  </section>
+
+  <footer>
+    <span class="mono dim" id="stats">—</span>
+    <span class="spacer"></span>
+    <a href="#" id="docs">docs</a>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

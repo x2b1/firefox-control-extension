@@ -1,0 +1,81 @@
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  width: 340px;
+  margin: 0;
+  padding: 10px;
+  font: 12px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #14161a;
+  color: #e6e8eb;
+}
+header, .row, footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+header { margin-bottom: 10px; }
+.between { justify-content: space-between; }
+.spacer { flex: 1; }
+section {
+  border: 1px solid #262a31;
+  border-radius: 6px;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+label { font-weight: 600; font-size: 11px; color: #9aa4b2; }
+.hint { font-size: 10.5px; color: #7c8695; margin-top: 6px; }
+.mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+.dim { color: #7c8695; }
+input {
+  flex: 1;
+  min-width: 0;
+  padding: 5px 7px;
+  border: 1px solid #2c313a;
+  border-radius: 4px;
+  background: #0e1013;
+  color: #e6e8eb;
+  font-size: 11.5px;
+}
+input:focus { outline: 1px solid #3d7eff; border-color: #3d7eff; }
+button {
+  padding: 5px 9px;
+  border: 1px solid #2c313a;
+  border-radius: 4px;
+  background: #1d2026;
+  color: #e6e8eb;
+  font-size: 11.5px;
+  cursor: pointer;
+}
+button:hover { background: #262a32; }
+button.primary { background: #2451c9; border-color: #2f63e6; }
+button.primary:hover { background: #2b5ee0; }
+button.danger { background: #3a1d20; border-color: #6b2b30; }
+button.danger:hover { background: #4a2429; }
+.dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: #4a5059; flex: none;
+}
+.dot.on { background: #2ecc71; box-shadow: 0 0 6px #2ecc71aa; }
+.dot.off { background: #c0392b; box-shadow: 0 0 6px #c0392b88; }
+.chips {
+  display: flex; flex-wrap: wrap; gap: 4px;
+  margin: 6px 0;
+  max-height: 84px; overflow-y: auto;
+}
+.chip {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 2px 4px 2px 7px;
+  border: 1px solid #2c313a; border-radius: 999px;
+  background: #1d2026; font-size: 10.5px;
+}
+.chip b { font-weight: 500; }
+.chip button {
+  padding: 0 4px; border: 0; background: transparent;
+  color: #7c8695; font-size: 13px; line-height: 1;
+}
+.chip button:hover { color: #ff6b6b; background: transparent; }
+.empty { color: #6b7480; font-size: 10.5px; font-style: italic; }
+footer { font-size: 10.5px; }
+a { color: #6f9bff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+#state { font-size: 10.5px; }

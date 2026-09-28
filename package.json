@@ -1,0 +1,19 @@
+{
+  "name": "pentest-bridge",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local agent bridge: a Firefox extension plus a loopback control server for authorised security testing.",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "bridge": "./cli/bridge.mjs"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "node --test test/",
+    "icons": "node tools/make-icons.js",
+    "xpi": "node tools/build-xpi.js"
+  }
+}
